@@ -80,15 +80,6 @@ body.home-active .nav-logo-wrap{ display:none; }
 }
 body.home-active #sidebar{opacity:0;visibility:hidden;pointer-events:none;}
 
-.sidebar-logo-wrap{
-  width:100%;
-  padding:12px 10px 10px;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-}
-.sidebar-logo{ width:88px; display:block; }
-body.light .sidebar-logo{ filter:invert(1) brightness(.15); }
-
 .sidebar-figure{ width:100%; flex:1; min-height:0; overflow:hidden; }
 .sidebar-figure img{ width:100%;height:100%; object-fit:cover;object-position:top center; display:block; }
 
@@ -258,9 +249,6 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
 
 <!-- SIDEBAR -->
 <aside id="sidebar">
-  <div class="sidebar-logo-wrap">
-    <img id="sidebarLogo" class="sidebar-logo" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/ASLogo_White.png" alt="Art &amp; Science">
-  </div>
   <div class="sidebar-figure">
     <img id="sidebarFig" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Approach.jpg" alt="">
   </div>
@@ -443,7 +431,7 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
           </div>
         </div>
         <div class="work-item">
-          <img class="work-item-thumb" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/100.jpg" alt="Johnson &amp; Johnson">
+          <img class="work-item-thumb" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/100.jpg" alt="Johnson and Johnson">
           <div class="work-overlay">
             <div class="work-overlay-title">Johnson &amp; Johnson: One Touch Reveal App</div>
             <div class="work-overlay-desc">Design Program for the One Touch Reveal Diabetes App</div>
@@ -528,25 +516,17 @@ const LOGO_D = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/mai
 const FIG_DEFAULT = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Approach.jpg";
 const FIG_RESULTS = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Results.png";
 
-const themeBtn    = document.getElementById('themeBtn');
-const navLogo     = document.getElementById('navLogo');
-const homeLogo    = document.getElementById('homeLogo');
-<<<<<<< HEAD
-=======
-const sidebarLogo = document.getElementById('sidebarLogo');
->>>>>>> 82a8f08097153e0014700b367c8861db003a7ecc
-const sidebarFig  = document.getElementById('sidebarFig');
+const themeBtn  = document.getElementById('themeBtn');
+const navLogo   = document.getElementById('navLogo');
+const homeLogo  = document.getElementById('homeLogo');
+const sidebarFig = document.getElementById('sidebarFig');
 
 themeBtn.addEventListener('click', () => {
   const isLight = document.body.classList.toggle('light');
   themeBtn.textContent = isLight ? '☀' : '☾';
   const logo = isLight ? LOGO_D : LOGO_W;
   navLogo.src = logo;
-<<<<<<< HEAD
-=======
   homeLogo.src = logo;
-  sidebarLogo.src = logo;
->>>>>>> 82a8f08097153e0014700b367c8861db003a7ecc
 });
 
 function showPage(id) {
@@ -554,7 +534,7 @@ function showPage(id) {
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
   const pageEl = document.getElementById('page-' + id);
   if (pageEl) pageEl.classList.add('active');
-  const navEl = document.querySelector(`.nav-links a[data-page="${id}"]`);
+  const navEl = document.querySelector('.nav-links a[data-page="' + id + '"]');
   if (navEl) navEl.classList.add('active');
   if (id === 'home') {
     document.body.classList.add('home-active');
@@ -563,12 +543,15 @@ function showPage(id) {
     const fig = pageEl ? pageEl.dataset.sidebarFig : 'default';
     sidebarFig.src = (fig === 'results') ? FIG_RESULTS : FIG_DEFAULT;
   }
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 }
 
 document.getElementById('logoHome').addEventListener('click', () => showPage('home'));
-document.querySelectorAll('a[data-page]').forEach(a => {
-  a.addEventListener('click', e => { e.preventDefault(); showPage(a.dataset.page); });
+document.querySelectorAll('a[data-page]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    showPage(a.dataset.page);
+  });
 });
 
 showPage('home');
