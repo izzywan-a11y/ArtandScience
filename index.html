@@ -531,6 +531,10 @@ const FIG_RESULTS = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScienc
 const themeBtn    = document.getElementById('themeBtn');
 const navLogo     = document.getElementById('navLogo');
 const homeLogo    = document.getElementById('homeLogo');
+<<<<<<< HEAD
+=======
+const sidebarLogo = document.getElementById('sidebarLogo');
+>>>>>>> 82a8f08097153e0014700b367c8861db003a7ecc
 const sidebarFig  = document.getElementById('sidebarFig');
 
 themeBtn.addEventListener('click', () => {
@@ -538,6 +542,11 @@ themeBtn.addEventListener('click', () => {
   themeBtn.textContent = isLight ? '☀' : '☾';
   const logo = isLight ? LOGO_D : LOGO_W;
   navLogo.src = logo;
+<<<<<<< HEAD
+=======
+  homeLogo.src = logo;
+  sidebarLogo.src = logo;
+>>>>>>> 82a8f08097153e0014700b367c8861db003a7ecc
 });
 
 function showPage(id) {
