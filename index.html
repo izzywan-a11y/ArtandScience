@@ -11,7 +11,7 @@
   --bg:#111111;--bg2:#1a1a1a;--bg3:#222222;
   --text:#f0ede6;--text2:#aaaaaa;--border:#2a2a2a;
   --accent:#e8217a;--nav-bg:#0d0d0d;--card-bg:#1a1a1a;
-  --sidebar-w:116px;
+  --sidebar-w:120px;
   --home-content-w:480px;
 }
 body.light{
@@ -37,9 +37,9 @@ body:not(.home-active) #topnav{ justify-content:flex-start; }
 
 .nav-logo-wrap{
   display:flex;align-items:center;
-  margin-right:20px;cursor:pointer;flex-shrink:0;
+  margin-right:20px;margin-left:-10px;cursor:pointer;flex-shrink:0;
 }
-.nav-logo{ height:26px; }
+.nav-logo{ height:30px; }
 body.light .nav-logo{ filter:invert(1) brightness(.15); }
 body.home-active .nav-logo-wrap{ display:none; }
 
@@ -80,22 +80,22 @@ body.home-active .nav-logo-wrap{ display:none; }
 }
 body.home-active #sidebar{opacity:0;visibility:hidden;pointer-events:none;}
 
-.sidebar-figure{ width:100%; flex:1; min-height:0; overflow:hidden; }
+.sidebar-figure{ width:100%; flex:1; min-height:0; overflow:hidden; max-height:65%; background:#fff; }
 .sidebar-figure img{ width:100%;height:100%; object-fit:cover;object-position:top center; display:block; }
 
 .sidebar-bottom{
   flex-shrink:0; width:100%;
   display:flex; flex-direction:row;
   align-items:flex-end; justify-content:center;
-  padding:12px 0 16px; gap:8px;
+  padding:36px 0 30px; gap:8px;
 }
 .sidebar-line{
   writing-mode:vertical-rl; transform:rotate(180deg);
   white-space:nowrap; font-family:'Barlow Condensed',sans-serif;
   letter-spacing:3px; text-transform:uppercase;
 }
-.sidebar-name{ font-size:11px;font-weight:700; color:var(--text); }
-.sidebar-role{ font-size:9px; color:var(--text2); letter-spacing:2.5px; }
+.sidebar-name{ font-size:13px;font-weight:700; color:var(--text); }
+.sidebar-role{ font-size:11px; color:var(--text2); letter-spacing:2.5px; }
 .sidebar-icons{ display:flex;flex-direction:column; align-items:center;gap:12px; }
 .sidebar-icons a{
   color:var(--text2);text-decoration:none;
@@ -163,7 +163,7 @@ body.light .rl-c1,body.light .rl-c2,body.light .rl-c3,body.light .rl-c4{mix-blen
 .section-body strong{font-weight:600;}
 .divider{border:none;border-top:1px solid var(--border);margin:48px 0;}
 
-.approach-hero-img{width:100%;max-width:860px;height:480px;object-fit:cover;object-position:center 20%;border:1px solid var(--border);margin-bottom:40px;display:block;}
+.approach-hero-img{width:100%;max-width:860px;height:440px;object-fit:cover;object-position:center 20%;border:1px solid var(--border);margin-bottom:40px;display:block;}
 .ai-callout{border:1px solid var(--accent);background:rgba(232,33,122,.07);border-radius:4px;padding:20px 24px;max-width:760px;margin:32px 0;display:flex;align-items:flex-start;gap:14px;}
 .ai-callout-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px;}
 .ai-callout p{font-size:15px;line-height:1.7;color:var(--text);}
@@ -254,7 +254,7 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
   </div>
   <div class="sidebar-bottom">
     <span class="sidebar-line sidebar-name">Isaac Klein</span>
-    <span class="sidebar-line sidebar-role">Design Program &amp; Operations</span>
+    <span class="sidebar-line sidebar-role">Design Program <span style="color:var(--accent);">&amp;</span> Operations</span>
     <div class="sidebar-icons">
       <a href="https://www.linkedin.com/in/isaaceklein/" target="_blank" title="LinkedIn">
         <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -391,7 +391,7 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
   </div>
 
   <!-- WORK -->
-  <div class="page" id="page-work" data-sidebar-fig="default">
+  <div class="page" id="page-work" data-sidebar-fig="work">
     <div class="inner-page">
       <div class="section-label">Digital / Print / Physical</div>
       <h1 class="section-title">Work Samples</h1>
@@ -451,7 +451,7 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
   </div>
 
   <!-- BRANDING -->
-  <div class="page" id="page-branding" data-sidebar-fig="default">
+  <div class="page" id="page-branding" data-sidebar-fig="branding">
     <div class="inner-page">
       <div class="section-label">Identity Development / Update / Maintenance</div>
       <h1 class="section-title">Brand Work</h1>
@@ -513,8 +513,10 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
 <script>
 const LOGO_W = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/ASLogo_White.png";
 const LOGO_D = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/ASLogo_Black.png";
-const FIG_DEFAULT = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Approach.jpg";
-const FIG_RESULTS = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Results.png";
+const FIG_DEFAULT  = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Approach.png";
+const FIG_RESULTS  = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Results.png";
+const FIG_BRANDING = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/BrandingSideBar.png";
+const FIG_WORK     = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/WorkSidebar.png";
 
 const themeBtn  = document.getElementById('themeBtn');
 const navLogo   = document.getElementById('navLogo');
@@ -541,7 +543,8 @@ function showPage(id) {
   } else {
     document.body.classList.remove('home-active');
     const fig = pageEl ? pageEl.dataset.sidebarFig : 'default';
-    sidebarFig.src = (fig === 'results') ? FIG_RESULTS : FIG_DEFAULT;
+    const figMap = { results: FIG_RESULTS, branding: FIG_BRANDING, work: FIG_WORK };
+    sidebarFig.src = figMap[fig] || FIG_DEFAULT;
   }
   window.scrollTo(0, 0);
 }
