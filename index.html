@@ -80,7 +80,7 @@ body.home-active .nav-logo-wrap{ display:none; }
 }
 body.home-active #sidebar{opacity:0;visibility:hidden;pointer-events:none;}
 
-.sidebar-figure{ width:100%; flex:1; min-height:0; overflow:hidden; max-height:65%; background:#fff; }
+.sidebar-figure{ width:100%; flex:1; min-height:0; overflow:hidden; max-height:65%; }
 .sidebar-figure img{ width:100%;height:100%; object-fit:cover;object-position:top center; display:block; }
 
 .sidebar-bottom{
@@ -299,7 +299,7 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
       <img class="approach-hero-img" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Hero%20Project.png" alt="Approach">
       <div class="section-label">The Science Behind Getting It Done</div>
       <h1 class="section-title">Project Management</h1>
-      <p class="section-body">I've always been passionate about the relationship between good design and ideas (<strong>Art</strong>) and the mechanics behind getting things done right (<strong>Science</strong>).</p>
+      <p class="section-body">I've always been passionate about the relationship between good design and ideas (<strong style="color:var(--accent)">Art</strong>) and the mechanics behind getting things done right (<strong style="color:var(--accent)">Science</strong>).</p>
       <p class="section-body">The difference between the best idea in the world being simply adequate vs. being best-in-class comes down to how it's executed. When it comes to the planning, management, and execution of digital/creative products, I have over <strong>20 years of experience</strong> of getting it done right.</p>
       <p class="section-body">I am a <strong>relentless process optimizer</strong>. If I see a way to make the thing we did today quicker and easier to do tomorrow — I do everything I can to make that happen. More often than not, a little bit of empathy for each and every stakeholder involved and a bespoke approach to what works for the team goes a long way.</p>
       <p class="section-body">To learn more about the science behind my approach, check out some of the <a href="#" data-page="results">Results</a>.</p>
@@ -366,7 +366,7 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
           <div class="case-num">Case Study No. 1</div>
           <div class="case-title">Chatham Financial: Design Ops Practice</div>
           <p class="case-desc">Built a design operations program from scratch for a 15+ person team — including a comprehensive SDLC framework, vendor renegotiations saving $10K+, and a ~60% reduction in the Design System backlog over 8 months. Also led cross-functional AI learning sessions for the product and development org.</p>
-          <a href="#" class="case-link">Download Case Study</a>
+          <a href="A%26S_Case%20Study_Chatham.pdf" class="case-link" target="_blank" download>Download Case Study</a>
         </div>
       </div>
       <div class="case-card">
@@ -375,7 +375,7 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
           <div class="case-num">Case Study No. 2</div>
           <div class="case-title">American Express: @Work</div>
           <p class="case-desc">Turned a complex UX product roadmap within Global Commercial Services into a design-forward product program. Built program trust with the Product Team, implemented agile best practices, single-source PM (Airtable), and developed a new intake process from scratch.</p>
-          <a href="#" class="case-link">Download Case Study</a>
+          <a href="A%26S_Case%20Study_AMEX.pdf" class="case-link" target="_blank" download>Download Case Study</a>
         </div>
       </div>
       <div class="case-card">
@@ -384,7 +384,16 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
           <div class="case-num">Case Study No. 3</div>
           <div class="case-title">Comcast / Xfinity: Prepaid App</div>
           <p class="case-desc">Consulted as dedicated on-site PM to rescue a complete overhaul of the Xfinity Prepaid App &amp; website. Implemented a phased agile approach to the SDLC — moving the project from 10 weeks behind schedule to delivered on time.</p>
-          <a href="#" class="case-link">Download Case Study</a>
+          <a href="A%26S_Case%20Study_Comcast.pdf" class="case-link" target="_blank" download>Download Case Study</a>
+        </div>
+      </div>
+      <div class="case-card">
+        <img class="case-thumb" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Forge%20Logo.PNG" alt="The Forge">
+        <div class="case-content">
+          <div class="case-num">Case Study No. 4</div>
+          <div class="case-title">The Forge</div>
+          <p class="case-desc">What happens when you design, architect and build your own custom project and resource management platform from scratch using in-house resources? (Hint: it's awesome)</p>
+          <a href="A%26S_Case%20Study_The%20Forge.pdf" class="case-link" target="_blank" download>Download Case Study</a>
         </div>
       </div>
     </div>
@@ -474,7 +483,7 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
   </div>
 
   <!-- CONTACT -->
-  <div class="page" id="page-contact" data-sidebar-fig="default">
+  <div class="page" id="page-contact" data-sidebar-fig="contact">
     <div class="inner-page">
       <div class="section-label">Let's Work Together</div>
       <h1 class="section-title">Contact</h1>
@@ -517,6 +526,7 @@ const FIG_DEFAULT  = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScien
 const FIG_RESULTS  = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Results.png";
 const FIG_BRANDING = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/BrandingSideBar.png";
 const FIG_WORK     = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/WorkSidebar.png";
+const FIG_CONTACT  = "https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Isaac%20Klein%20-%20Headshot.jpg";
 
 const themeBtn  = document.getElementById('themeBtn');
 const navLogo   = document.getElementById('navLogo');
@@ -543,7 +553,7 @@ function showPage(id) {
   } else {
     document.body.classList.remove('home-active');
     const fig = pageEl ? pageEl.dataset.sidebarFig : 'default';
-    const figMap = { results: FIG_RESULTS, branding: FIG_BRANDING, work: FIG_WORK };
+    const figMap = { results: FIG_RESULTS, branding: FIG_BRANDING, work: FIG_WORK, contact: FIG_CONTACT };
     sidebarFig.src = figMap[fig] || FIG_DEFAULT;
   }
   window.scrollTo(0, 0);
