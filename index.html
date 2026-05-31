@@ -199,8 +199,7 @@ body.light .rl-c1,body.light .rl-c2,body.light .rl-c3,body.light .rl-c4{mix-blen
 .work-overlay-imgs img{flex:1;min-width:0;object-fit:cover;border:1px solid rgba(255,255,255,.15);}
 
 .logo-float{display:flex;flex-wrap:wrap;gap:40px;align-items:center;margin-top:32px;padding:32px 0;}
-.logo-float-item img{height:60px;max-width:160px;object-fit:contain;filter:grayscale(1) invert(1);opacity:.85;transition:opacity .2s;}
-body.light .logo-float-item img{filter:grayscale(1);}
+.logo-float-item img{height:60px;max-width:160px;object-fit:contain;opacity:.85;transition:opacity .2s;}
 .logo-float-item img:hover{opacity:1;}
 .logo-float-text{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text2);transition:color .2s;white-space:nowrap;}
 .logo-float-text:hover{color:var(--text);}
@@ -466,7 +465,7 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
       <h1 class="section-title">Brand Work</h1>
       <p class="section-body">For over a decade I helped brands of all shapes and sizes express themselves. I've helped them grow, adapt, change — and in some cases even helped create them from the ground up.</p>
       <div class="logo-float">
-        <span class="logo-float-text">Black Coffee</span>
+        <div class="logo-float-item"><img src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Blackcoffee_W.png" alt="Black Coffee"></div>
         <span class="logo-float-text">Coffee Gorilla</span>
         <span class="logo-float-text">ACME Smoked Fish</span>
         <span class="logo-float-text">Leo's Bagels</span>
