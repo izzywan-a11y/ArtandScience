@@ -187,14 +187,23 @@ body.light .rl-c1,body.light .rl-c2,body.light .rl-c3,body.light .rl-c4{mix-blen
 .case-link{display:inline-block;margin-top:14px;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px;}
 .case-link:hover{opacity:.7;}
 
-.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:40px;}
-.work-item{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer;background:var(--bg2);}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:40px;overflow:visible;}
+.work-item{position:relative;aspect-ratio:4/3;overflow:visible;cursor:pointer;background:transparent;}
+.work-item-inner{position:absolute;inset:0;overflow:hidden;background:var(--bg2);transition:inset .2s ease;z-index:1;}
+.work-item:hover .work-item-inner{z-index:10;}
+.work-item:nth-child(3n+1):hover .work-item-inner{right:-8px;bottom:-8px;}
+.work-item:nth-child(3n+2):hover .work-item-inner{left:-8px;right:-8px;bottom:-8px;}
+.work-item:nth-child(3n):hover .work-item-inner{left:-8px;bottom:-8px;}
 .work-item-thumb{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease,filter .4s ease;}
-.work-overlay{position:absolute;inset:0;background:rgba(10,10,10,.92);opacity:0;transition:opacity .3s ease;display:flex;flex-direction:column;padding:20px;overflow:hidden;pointer-events:none;}
+.work-overlay{position:absolute;inset:0;background:rgba(10,10,10,.92);opacity:0;transition:opacity .3s ease;display:flex;flex-direction:column;padding:16px;overflow:hidden;pointer-events:none;}
 .work-item:hover .work-item-thumb{transform:scale(1.04);filter:brightness(.4);}
 .work-item:hover .work-overlay{opacity:1;pointer-events:auto;}
-.work-overlay-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;color:#fff;margin-bottom:8px;flex-shrink:0;}
-.work-overlay-desc{font-size:12px;line-height:1.6;color:rgba(255,255,255,.8);margin-bottom:12px;flex-shrink:0;}
+.work-overlay-title{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;color:#fff;margin-bottom:4px;flex-shrink:0;}
+.work-overlay-desc{font-size:11px;line-height:1.5;color:rgba(255,255,255,.8);margin-bottom:6px;flex-shrink:0;}
+.work-overlay-icons{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;flex-shrink:0;}
+.service-icon{position:relative;display:inline-flex;cursor:default;}
+.service-icon::before{content:attr(data-tooltip);position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);background:#111;color:#fff;font-size:10px;white-space:nowrap;padding:3px 6px;border-radius:3px;opacity:0;pointer-events:none;transition:opacity .15s ease;z-index:20;}
+.service-icon:hover::before{opacity:1;}
 .work-overlay-imgs{display:flex;gap:6px;flex:1;min-height:0;}
 .work-overlay-imgs img{flex:1;min-width:0;object-fit:cover;border:1px solid rgba(255,255,255,.15);}
 
@@ -411,52 +420,160 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
       <p class="section-body">If it gets coded, connected to a database, animated, hung on the front door, shows up in your feed, gets packaged up and put on a shelf, or directs traffic to your site — odds are I know how to get it done.</p>
       <p class="section-body">From front-end to back-end, to the sales kit that supports the new brand trajectory — below is just a small slice of what I've helped get done.</p>
       <div class="work-grid">
+        <!-- 1: One Touch Reveal — left col -->
         <div class="work-item">
-          <img class="work-item-thumb" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Amexeco.png" alt="American Express Serve">
-          <div class="work-overlay">
-            <div class="work-overlay-title">American Express Serve</div>
-            <div class="work-overlay-desc">Helped build a brand, ad campaigns and a complete digital ecosystem for a unique American Express product.</div>
-            <div class="work-overlay-imgs"><img src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/amex-serve%20600.jpg" alt=""></div>
+          <div class="work-item-inner">
+            <img class="work-item-thumb" src="OTR_hero.jpg" alt="One Touch Reveal">
+            <div class="work-overlay">
+              <div class="work-overlay-title">One Touch Reveal Mobile App</div>
+              <div class="work-overlay-desc">Oversaw the Design Program for the One Touch Reveal® Mobile App and Web Application for a J&amp;J subsidiary. First ever FDA approved Bolus Dosage app — delivered on time and under budget.</div>
+              <div class="work-overlay-icons">
+                <div class="service-icon" data-tooltip="iOS / Android App"><img src="icons/ios_android.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Web Application"><img src="icons/web_application.svg" width="16" height="16" alt=""></div>
+              </div>
+              <div class="work-overlay-imgs"><img src="One%20Touch.jpg" alt=""></div>
+            </div>
           </div>
         </div>
+        <!-- 2: American Express Serve — center col -->
         <div class="work-item">
-          <img class="work-item-thumb" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Shake%20Shack%20stnad%20for%20something.png" alt="Shake Shack">
-          <div class="work-overlay">
-            <div class="work-overlay-title">Shake Shack</div>
-            <div class="work-overlay-desc">Brand Development, Launch, Advertising, Merch</div>
-            <div class="work-overlay-imgs"><img src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Shackshackcomp.jpg" alt=""></div>
+          <div class="work-item-inner">
+            <img class="work-item-thumb" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Amexeco.png" alt="American Express Serve">
+            <div class="work-overlay">
+              <div class="work-overlay-title">American Express Serve</div>
+              <div class="work-overlay-desc">Built a brand, ad campaigns and a complete digital ecosystem for a unique American Express prepaid product for people without access to the financial system.</div>
+              <div class="work-overlay-icons">
+                <div class="service-icon" data-tooltip="Brand Identity Development"><img src="icons/brand_identity.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Website"><img src="icons/website.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Digital Ecosystem"><img src="icons/digital_ecosystem.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Digital Ad Campaign"><img src="icons/digital_ad.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="iOS / Android App"><img src="icons/ios_android.svg" width="16" height="16" alt=""></div>
+              </div>
+              <div class="work-overlay-imgs">
+                <img src="amex_serve_1.png" alt="">
+                <img src="amex_serve_2.png" alt="">
+              </div>
+            </div>
           </div>
         </div>
+        <!-- 3: Shake Shack — right col -->
         <div class="work-item">
-          <img class="work-item-thumb" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/xfinityprepaid_hero_desktop_eng.png" alt="Comcast / Xfinity">
-          <div class="work-overlay">
-            <div class="work-overlay-title">Comcast / Xfinity</div>
-            <div class="work-overlay-desc">Content coming soon.</div>
-            <div class="work-overlay-imgs"><img src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Xfinity%20screen1.jpg" alt=""></div>
+          <div class="work-item-inner">
+            <img class="work-item-thumb" src="Shack_hero.png" alt="Shake Shack">
+            <div class="work-overlay">
+              <div class="work-overlay-title">Shake Shack</div>
+              <div class="work-overlay-desc">Shepherded the development and launch of the Shake Shack brand from the first store in Madison Sq. Park to the opening in the Mall of Dubai.</div>
+              <div class="work-overlay-icons">
+                <div class="service-icon" data-tooltip="Brand Identity Development"><img src="icons/brand_identity.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Merchandise"><img src="icons/merchandise.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Packaging"><img src="icons/packaging.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Website"><img src="icons/website.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Digital Ad Campaign"><img src="icons/digital_ad.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Print Marketing Campaign"><img src="icons/print_marketing.svg" width="16" height="16" alt=""></div>
+              </div>
+              <div class="work-overlay-imgs">
+                <img src="shake_shack_1.jpg" alt="">
+                <img src="shake_shack_2.jpg" alt="">
+              </div>
+            </div>
           </div>
         </div>
+        <!-- 4: Acme Smoked Fish — left col -->
         <div class="work-item">
-          <img class="work-item-thumb" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Acmelogo.jpg" alt="Acme Smoked Fish">
-          <div class="work-overlay">
-            <div class="work-overlay-title">Acme Smoked Fish</div>
-            <div class="work-overlay-desc">Rebranded America's oldest smoked fish company with a new Logo/Identity, Website and packaging</div>
-            <div class="work-overlay-imgs"><img src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Acme_packaging%20set.jpg" alt=""></div>
+          <div class="work-item-inner">
+            <img class="work-item-thumb" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Acmelogo.jpg" alt="Acme Smoked Fish">
+            <div class="work-overlay">
+              <div class="work-overlay-title">Acme Smoked Fish</div>
+              <div class="work-overlay-desc">Oversaw the rebrand of America's oldest purveyor of smoked fish in Brooklyn.</div>
+              <div class="work-overlay-icons">
+                <div class="service-icon" data-tooltip="Brand Identity Development"><img src="icons/brand_identity.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Packaging"><img src="icons/packaging.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Website"><img src="icons/website.svg" width="16" height="16" alt=""></div>
+              </div>
+              <div class="work-overlay-imgs"><img src="Acme_1.jpg" alt=""></div>
+            </div>
           </div>
         </div>
+        <!-- 5: Comcast / Xfinity — center col -->
         <div class="work-item">
-          <img class="work-item-thumb" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/100.jpg" alt="Johnson and Johnson">
-          <div class="work-overlay">
-            <div class="work-overlay-title">Johnson &amp; Johnson: One Touch Reveal App</div>
-            <div class="work-overlay-desc">Design Program for the One Touch Reveal Diabetes App</div>
-            <div class="work-overlay-imgs"><img src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/OTR_spec.png" alt=""></div>
+          <div class="work-item-inner">
+            <img class="work-item-thumb" src="xfinityprepaid_hero.png" alt="Comcast / Xfinity">
+            <div class="work-overlay">
+              <div class="work-overlay-title">Comcast / Xfinity</div>
+              <div class="work-overlay-desc">Consulted with Hero Digital to get the Xfinity Prepaid Mobile App/platform from 6+ months behind schedule to launching on time.</div>
+              <div class="work-overlay-icons">
+                <div class="service-icon" data-tooltip="iOS / Android App"><img src="icons/ios_android.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Web Application"><img src="icons/web_application.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Digital Ad Campaign"><img src="icons/digital_ad.svg" width="16" height="16" alt=""></div>
+              </div>
+              <div class="work-overlay-imgs">
+                <img src="Xfinity_1.jpg" alt="">
+                <img src="Xfinity_2.jpg" alt="">
+              </div>
+            </div>
           </div>
         </div>
+        <!-- 6: 2011 One Show — right col -->
         <div class="work-item">
-          <img class="work-item-thumb" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Kanebeer.jpg" alt="Kane Brewing">
-          <div class="work-overlay">
-            <div class="work-overlay-title">Kane Brewing</div>
-            <div class="work-overlay-desc">Rebrand for a very small/cool brewery in the Dirty Jerz</div>
-            <div class="work-overlay-imgs"><img src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/kane_rebrand.jpg" alt=""></div>
+          <div class="work-item-inner">
+            <img class="work-item-thumb" src="oneshow.jpg" alt="2011 One Show">
+            <div class="work-overlay">
+              <div class="work-overlay-title">2011 One Show</div>
+              <div class="work-overlay-desc">Was fortunate enough in my agency days to run the project of branding and concepting the 2011 One Show Awards.</div>
+              <div class="work-overlay-icons">
+                <div class="service-icon" data-tooltip="Brand Identity Development"><img src="icons/brand_identity.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Print Marketing Campaign"><img src="icons/print_marketing.svg" width="16" height="16" alt=""></div>
+              </div>
+              <div class="work-overlay-imgs"><img src="oneshow.jpg" alt=""></div>
+            </div>
+          </div>
+        </div>
+        <!-- 7: Kane Brewing — left col -->
+        <div class="work-item">
+          <div class="work-item-inner">
+            <img class="work-item-thumb" src="kane_1.jpg" alt="Kane Brewing">
+            <div class="work-overlay">
+              <div class="work-overlay-title">Kane Brewing</div>
+              <div class="work-overlay-desc">Helped a really cool small brewery in Jersey up its brand game.</div>
+              <div class="work-overlay-icons">
+                <div class="service-icon" data-tooltip="Brand Identity Development"><img src="icons/brand_identity.svg" width="16" height="16" alt=""></div>
+              </div>
+              <div class="work-overlay-imgs">
+                <img src="kane_1.jpg" alt="">
+                <img src="kane_2.jpg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 8: Prima Packaging — center col -->
+        <div class="work-item">
+          <div class="work-item-inner">
+            <img class="work-item-thumb" src="prima_hero.jpg" alt="Prima Packaging">
+            <div class="work-overlay">
+              <div class="work-overlay-title">Prima Packaging</div>
+              <div class="work-overlay-desc">A packaging project for a farm that sold produce through Walmart. Still have the picture.</div>
+              <div class="work-overlay-icons">
+                <div class="service-icon" data-tooltip="Packaging"><img src="icons/packaging.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Brand Identity Development"><img src="icons/brand_identity.svg" width="16" height="16" alt=""></div>
+              </div>
+              <div class="work-overlay-imgs"><img src="prima_1.jpg" alt=""></div>
+            </div>
+          </div>
+        </div>
+        <!-- 9: Audience Science — right col -->
+        <div class="work-item">
+          <div class="work-item-inner">
+            <img class="work-item-thumb" src="audiencescience_package.jpg" alt="Audience Science">
+            <div class="work-overlay">
+              <div class="work-overlay-title">Audience Science</div>
+              <div class="work-overlay-desc">As part of a rebrand, we put together this really cool direct mail piece for a marketing data company. Came with a small Brookstone projector and everything.</div>
+              <div class="work-overlay-icons">
+                <div class="service-icon" data-tooltip="Brand Identity Development"><img src="icons/brand_identity.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Print Marketing Campaign"><img src="icons/print_marketing.svg" width="16" height="16" alt=""></div>
+                <div class="service-icon" data-tooltip="Digital Ad Campaign"><img src="icons/digital_ad.svg" width="16" height="16" alt=""></div>
+              </div>
+              <div class="work-overlay-imgs"><img src="audiencescience_package.jpg" alt=""></div>
+            </div>
           </div>
         </div>
       </div>

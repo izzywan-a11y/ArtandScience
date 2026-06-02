@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 -32 64 64" width="64" height="64">
+  <style>
+    .is { fill: none; stroke: #222222; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .is1 { fill: none; stroke: #222222; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .if { fill: #222222; stroke: none; }
+    .ibg { fill: #ffffff; }
+    .adlabel { font-family: sans-serif; font-size: 6px; font-weight: bold; text-anchor: middle; fill: #222222; }
+  </style>
+  <g transform="translate(0,0)">
+
+  <path d="M-22,14 C-22,-18 -2,-22 0,-8 C2,6 20,-20 22,14" class="is"/>
+  <line x1="-22" y1="14" x2="-22" y2="-18" class="is1"/>
+  <line x1="0" y1="-8" x2="-2" y2="-22" class="is1"/>
+  <line x1="0" y1="-8" x2="2" y2="6" class="is1"/>
+  <line x1="22" y1="14" x2="20" y2="-20" class="is1"/>
+  <rect x="-25" y="11" width="6" height="6" class="if"/>
+  <rect x="-3" y="-11" width="6" height="6" class="if"/>
+  <rect x="19" y="11" width="6" height="6" class="if"/>
+  <circle cx="-22" cy="-18" r="2.5" class="is" style="stroke-width:1.5"/>
+  <circle cx="-2" cy="-22" r="2.5" class="is" style="stroke-width:1.5"/>
+  <circle cx="2" cy="6" r="2.5" class="is" style="stroke-width:1.5"/>
+  <circle cx="20" cy="-20" r="2.5" class="is" style="stroke-width:1.5"/>
+
+  </g>
+</svg>
