@@ -118,7 +118,7 @@ body:not(.home-active) .main{margin-left:var(--sidebar-w);}
   min-height:calc(100vh - 52px);
   display:none;flex-direction:column;
   align-items:center;justify-content:center;
-  padding:48px 24px 32px;text-align:center;
+  padding:42px 24px 32px;text-align:center;
 }
 #page-home.active{display:flex;}
 .home-content{
@@ -143,10 +143,10 @@ body.light .rl-c1,body.light .rl-c2,body.light .rl-c3,body.light .rl-c4{mix-blen
 .runner-stage:hover .rl-c4{visibility:visible;opacity:.62;transform:translateX(88px);transition:opacity .30s .15s ease,transform .30s .15s ease;}
 
 .home-byline{
-  margin-top:24px;
+  margin-top:27px;
   font-family:'Barlow Condensed',sans-serif;
-  font-size:11px;letter-spacing:3px;text-transform:uppercase;
-  color:var(--text2); line-height:1.6;
+  font-size:13px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--text2); line-height:1.6;white-space:nowrap;
 }
 .home-byline .name-highlight{color:var(--accent);}
 .home-credit{margin-top:8px;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:1px;color:var(--text2);}
@@ -191,19 +191,20 @@ body.light .rl-c1,body.light .rl-c2,body.light .rl-c3,body.light .rl-c4{mix-blen
 .work-item{position:relative;aspect-ratio:4/3;overflow:visible;cursor:pointer;background:transparent;}
 .work-item-inner{position:absolute;inset:0;overflow:hidden;background:var(--bg2);transition:inset .2s ease;z-index:1;}
 .work-item:hover .work-item-inner{z-index:10;}
-.work-item:nth-child(3n+1):hover .work-item-inner{right:-8px;bottom:-8px;}
-.work-item:nth-child(3n+2):hover .work-item-inner{left:-8px;right:-8px;bottom:-8px;}
-.work-item:nth-child(3n):hover .work-item-inner{left:-8px;bottom:-8px;}
+.work-item:nth-child(3n+1):hover .work-item-inner{right:-10px;bottom:-10px;}
+.work-item:nth-child(3n+2):hover .work-item-inner{left:-10px;right:-10px;bottom:-10px;}
+.work-item:nth-child(3n):hover .work-item-inner{left:-10px;bottom:-10px;}
 .work-item-thumb{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease,filter .4s ease;}
 .work-overlay{position:absolute;inset:0;background:rgba(10,10,10,.92);opacity:0;transition:opacity .3s ease;display:flex;flex-direction:column;padding:16px;overflow:hidden;pointer-events:none;}
 .work-item:hover .work-item-thumb{transform:scale(1.04);filter:brightness(.4);}
 .work-item:hover .work-overlay{opacity:1;pointer-events:auto;}
 .work-overlay-title{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;color:#fff;margin-bottom:4px;flex-shrink:0;}
-.work-overlay-desc{font-size:11px;line-height:1.5;color:rgba(255,255,255,.8);margin-bottom:6px;flex-shrink:0;}
+.work-overlay-desc{font-size:11px;line-height:1.5;color:rgba(255,255,255,.8);margin-bottom:10px;flex-shrink:0;}
 .work-overlay-icons{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;flex-shrink:0;}
 .service-icon{position:relative;display:inline-flex;cursor:default;}
 .service-icon::before{content:attr(data-tooltip);position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);background:#111;color:#fff;font-size:10px;white-space:nowrap;padding:3px 6px;border-radius:3px;opacity:0;pointer-events:none;transition:opacity .15s ease;z-index:20;}
 .service-icon:hover::before{opacity:1;}
+.work-overlay-icons .service-icon:last-child::before{left:auto;right:0;transform:none;}
 .work-overlay-imgs{display:flex;gap:6px;flex:1;min-height:0;}
 .work-overlay-imgs img{flex:1;min-width:0;object-fit:cover;border:1px solid rgba(255,255,255,.15);}
 
@@ -234,9 +235,10 @@ textarea.form-input{min-height:110px;resize:vertical;}
 .btn-send{width:100%;background:var(--accent);color:#fff;border:none;padding:14px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;transition:opacity .2s;margin-top:4px;}
 .btn-send:hover{opacity:.85;}
 
-.site-footer{border-top:1px solid var(--border);padding:16px 64px;display:flex;justify-content:space-between;align-items:center;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:1px;color:var(--text2);transition:margin-left .2s;}
+.site-footer{border-top:1px solid var(--border);padding:10px 64px;display:flex;justify-content:space-between;align-items:center;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:1px;color:var(--text2);transition:margin-left .2s;}
 body.home-active .site-footer{margin-left:0;}
 body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
+body.home-active .site-footer span:first-child{display:none;}
 .site-footer a{color:#666;text-decoration:none;}
 .site-footer a:hover{color:var(--accent);}
 </style>
@@ -296,13 +298,7 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
         <img class="rl-c3" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/1_RunningPink.png" alt="">
         <img class="rl-c4" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/3_RunningColor.png" alt="">
       </div>
-      <p class="home-byline">
-        Professional Portfolio of <span class="name-highlight">Isaac Klein</span> :// Design &amp; Product Operations
-      </p>
-      <p class="home-credit">
-        © lettering by <a href="https://www.instagram.com/rodneyibarra/" target="_blank">Rodney Ibarra</a>
-        &nbsp;||&nbsp; art by Yamane Yoshitake
-      </p>
+      <p class="home-byline">Professional Portfolio of <span class="name-highlight">Isaac Klein</span> :// Design &amp; Product Operations</p>
     </div>
   </div>
 
@@ -392,7 +388,7 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
         </div>
       </div>
       <div class="case-card">
-        <img class="case-thumb" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Xfinity%20screen1.jpg" alt="Comcast / Xfinity">
+        <img class="case-thumb" src="Xfinity_1.jpg" alt="Comcast / Xfinity">
         <div class="case-content">
           <div class="case-num">Case Study No. 3</div>
           <div class="case-title">Comcast / Xfinity: Prepaid App</div>
@@ -598,27 +594,16 @@ body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
     <div class="inner-page">
       <div class="section-label">Let's Work Together</div>
       <h1 class="section-title">Contact</h1>
-      <div class="contact-grid">
-        <div>
-          <p class="section-body" style="max-width:none;">I've spent about 2 decades helping to manage the creative development process. The first half of my career was spent in the Creative/Digital Agency world doing branding, websites, and all sorts of award-winning things.</p>
-          <p class="section-body" style="max-width:none;margin-top:16px;">Since 2018 I've been focused primarily on Design Operations for large-scale global technology products.</p>
-          <p class="section-body" style="max-width:none;margin-top:16px;">When I am not doing that, I am busy being The World's Best Dad or doing something nerdy.</p>
-          <div class="contact-info-label">Email</div>
-          <a href="mailto:isaacklein@gmail.com" class="contact-info-val">isaacklein@gmail.com</a>
-          <div class="contact-info-label">Phone</div>
-          <a href="tel:+12158062200" class="contact-info-val">+1.215.806.2200</a>
-          <div class="contact-info-label">LinkedIn</div>
-          <a href="https://linkedin.com/in/isaaceklein" target="_blank" class="contact-info-val">linkedin.com/in/isaaceklein</a>
-        </div>
-        <div>
-          <div class="form-title">Holler</div>
-          <div class="form-group"><label class="form-label">Name</label><input type="text" class="form-input" placeholder="Your name"></div>
-          <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="your@email.com"></div>
-          <div class="form-group"><label class="form-label">Phone</label><input type="tel" class="form-input" placeholder="Optional"></div>
-          <div class="form-group"><label class="form-label">Subject</label><input type="text" class="form-input" placeholder="What's this about?"></div>
-          <div class="form-group"><label class="form-label">Message</label><textarea class="form-input" placeholder="Tell me about the opportunity..."></textarea></div>
-          <button class="btn-send">Send It</button>
-        </div>
+      <div style="max-width:560px;margin-top:32px;">
+        <p class="section-body" style="max-width:none;">I've spent about 2 decades helping to manage the creative development process. The first half of my career was spent in the Creative/Digital Agency world doing branding, websites, and all sorts of award-winning things.</p>
+        <p class="section-body" style="max-width:none;margin-top:16px;">Since 2018 I've been focused primarily on Design Operations for large-scale global technology products.</p>
+        <p class="section-body" style="max-width:none;margin-top:16px;">When I am not doing that, I am busy being The World's Best Dad or doing something nerdy.</p>
+        <div class="contact-info-label">Email</div>
+        <a href="mailto:isaacklein@gmail.com" class="contact-info-val">isaacklein@gmail.com</a>
+        <div class="contact-info-label">Phone</div>
+        <a href="tel:+12158062200" class="contact-info-val">+1.215.806.2200</a>
+        <div class="contact-info-label">LinkedIn</div>
+        <a href="https://linkedin.com/in/isaaceklein" target="_blank" class="contact-info-val">linkedin.com/in/isaaceklein</a>
       </div>
     </div>
   </div>
