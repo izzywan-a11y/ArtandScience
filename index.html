@@ -108,7 +108,7 @@ body.home-active #sidebar{opacity:0;visibility:hidden;pointer-events:none;}
 
 /* MAIN LAYOUT */
 .main{margin-top:52px;min-height:calc(100vh - 52px);transition:margin-left .2s;}
-body.home-active .main{margin-left:0;}
+body.home-active .main{margin-left:0;min-height:auto;}
 body:not(.home-active) .main{margin-left:var(--sidebar-w);}
 .page{display:none;}
 .page.active{display:block;}
