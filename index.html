@@ -68,6 +68,61 @@ body.home-active .nav-logo-wrap{ display:none; }
 }
 .theme-toggle:hover{border-color:var(--accent);color:var(--accent);}
 
+.menu-toggle{
+  display:none;
+  background:none;border:none;color:var(--text);
+  width:36px;height:36px;border-radius:999px;
+  align-items:center;justify-content:center;cursor:pointer;
+  flex-shrink:0;
+}
+.menu-toggle span,
+.menu-toggle span::before,
+.menu-toggle span::after{
+  display:block;content:'';width:18px;height:2px;background:currentColor;border-radius:2px;position:relative;
+}
+.menu-toggle span::before{position:absolute;top:-6px;left:0;}
+.menu-toggle span::after{position:absolute;top:6px;left:0;}
+
+.mobile-drawer-backdrop{
+  display:none;position:fixed;inset:0;z-index:260;
+  background:rgba(0,0,0,.55);opacity:0;pointer-events:none;
+  transition:opacity .2s ease;
+}
+.mobile-drawer{
+  display:none;position:fixed;top:0;right:0;bottom:0;z-index:270;
+  width:min(84vw,320px);background:var(--nav-bg);border-left:1px solid var(--border);
+  transform:translateX(100%);transition:transform .25s ease;
+  padding:18px 18px 22px;overflow-y:auto;
+}
+.mobile-drawer-header{
+  display:flex;align-items:center;justify-content:flex-end;margin-bottom:14px;
+}
+.mobile-drawer-close{
+  background:none;border:none;color:var(--text);width:34px;height:34px;
+  border-radius:999px;font-size:28px;line-height:1;cursor:pointer;
+}
+.mobile-drawer-figure{width:100%;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--border);background:var(--bg2);margin-bottom:18px;}
+.mobile-drawer-figure img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+.mobile-drawer-name{font-family:'Barlow Condensed',sans-serif;font-size:18px;letter-spacing:2px;text-transform:uppercase;color:var(--text);margin-bottom:4px;}
+.mobile-drawer-role{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text2);margin-bottom:18px;}
+.mobile-drawer-links{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;}
+.mobile-drawer-links a{
+  font-family:'Barlow Condensed',sans-serif;font-size:16px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text);text-decoration:none;padding:10px 0;border-bottom:1px solid var(--border);
+}
+.mobile-drawer-links a.active{color:var(--accent);}
+.mobile-drawer-links a.nav-ai{color:var(--accent);}
+.mobile-drawer-links a.nav-ai.active{background:var(--accent);color:#fff;padding-left:10px;padding-right:10px;border-radius:4px;border-bottom-color:transparent;}
+.mobile-drawer-icons{display:flex;gap:10px;align-items:center;margin-top:8px;}
+.mobile-drawer-icons a{
+  width:34px;height:34px;border:1px solid var(--border);border-radius:999px;
+  display:flex;align-items:center;justify-content:center;color:var(--text2);text-decoration:none;
+}
+.mobile-drawer-icons svg{width:16px;height:16px;fill:currentColor;}
+body.drawer-open{overflow:hidden;}
+body.drawer-open .mobile-drawer-backdrop{opacity:1;pointer-events:auto;}
+body.drawer-open .mobile-drawer{transform:translateX(0);}
+
 /* SIDEBAR */
 #sidebar{
   position:fixed;top:52px;left:0;bottom:0;
@@ -210,6 +265,10 @@ body.light .rl-c1,body.light .rl-c2,body.light .rl-c3,body.light .rl-c4{mix-blen
 .work-overlay-icons .service-icon:last-child::before{left:auto;right:0;transform:none;}
 .work-overlay-imgs{display:flex;gap:6px;flex:1;min-height:0;}
 .work-overlay-imgs img{flex:1;min-width:0;object-fit:cover;border:1px solid rgba(255,255,255,.15);}
+.work-item-close{
+  display:none;align-self:flex-end;background:none;border:none;color:#fff;
+  font-size:42px;line-height:1;cursor:pointer;padding:0;margin-bottom:8px;
+}
 
 .logo-float{margin-top:32px;padding:32px 0;}
 .logo-float img{width:50%;}
@@ -238,6 +297,57 @@ textarea.form-input{min-height:110px;resize:vertical;}
 .btn-send{width:100%;background:var(--accent);color:#fff;border:none;padding:14px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;transition:opacity .2s;margin-top:4px;}
 .btn-send:hover{opacity:.85;}
 
+@media (max-width:980px){
+  .inner-page{padding:52px 40px 64px;}
+  .section-title{font-size:clamp(32px,5vw,58px);}
+  .contact-grid{grid-template-columns:1fr;gap:40px;}
+  .work-grid{grid-template-columns:repeat(2,1fr);gap:18px;}
+}
+
+@media (max-width:780px){
+  #sidebar{display:none;}
+  .main{margin-left:0;}
+  .site-footer{margin-left:0;padding:18px 24px;}
+  .nav-logo-wrap{margin-left:0;}
+  .nav-links{display:none;}
+  .menu-toggle{display:flex;margin-left:auto;}
+  .theme-toggle{width:30px;height:30px;font-size:12px;}
+  .inner-page{padding:48px 24px 64px;}
+  .approach-hero-img{height:auto;max-width:100%;}
+  .work-grid{grid-template-columns:1fr;gap:16px;}
+  .case-card{flex-direction:column;}
+  .case-thumb{width:100%;height:auto;}
+  .mobile-drawer-backdrop{display:block;}
+  .mobile-drawer{display:block;}
+  .work-item{aspect-ratio:auto;min-height:170px;}
+  .work-item-inner{position:relative;inset:auto;display:flex;flex-direction:column;}
+  .work-item-thumb{height:220px;}
+  .work-overlay{position:relative;inset:auto;opacity:1;pointer-events:auto;background:var(--bg2);padding:16px 16px 20px;display:none;}
+  .work-item.expanded .work-overlay{display:flex;}
+  .work-item.expanded .work-overlay{gap:0;}
+  .work-item.expanded .work-item-thumb{filter:none;transform:none;}
+  .work-item.expanded{border:1px solid var(--border);background:var(--bg2);}
+  .work-item.expanded .work-item-close{display:block;color:var(--text);align-self:flex-end;}
+  .work-item.expanded .work-overlay-imgs{flex-direction:column;}
+  .work-item.expanded .work-overlay-imgs img{min-height:150px;}
+  .logo-float img{width:100%;}
+  .section-body,.home-byline{font-size:15px;}
+  .home-content{width:100%;}
+  .runner-stage{width:90%;max-width:420px;}
+}
+
+@media (max-width:560px){
+  #topnav{padding:0 16px;}
+  .inner-page{padding:42px 18px 60px;}
+  .section-title{font-size:clamp(28px,6vw,42px);}
+  .tools-main-title{font-size:34px;}
+  .tag-row{gap:6px;}
+  .tag{padding:5px 10px;font-size:10px;}
+  .work-item-thumb{height:200px;}
+  .site-footer{flex-direction:column;align-items:flex-start;gap:10px;}
+  .contact-info-val{font-size:16px;}
+}
+
 .site-footer{border-top:1px solid var(--border);padding:10px 64px;display:flex;justify-content:space-between;align-items:center;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:1px;color:var(--text2);transition:margin-left .2s;}
 body.home-active .site-footer{margin-left:0;}
 body:not(.home-active) .site-footer{margin-left:var(--sidebar-w);}
@@ -262,8 +372,38 @@ body.home-active .site-footer span:first-child{display:none;}
     <a href="#" data-page="contact">Contact</a>
   </div>
   <div class="nav-spacer"></div>
+  <button class="menu-toggle" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span></button>
   <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">☾</button>
 </nav>
+
+<div class="mobile-drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="mobile-drawer-header">
+    <button class="mobile-drawer-close" id="drawerClose" aria-label="Close menu">×</button>
+  </div>
+  <div class="mobile-drawer-figure"><img id="mobileSidebarFig" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Approach.jpg" alt=""></div>
+  <div class="mobile-drawer-name">Isaac Klein</div>
+  <div class="mobile-drawer-role">Design Program <span style="color:var(--accent);">&amp;</span> Operations</div>
+  <nav class="mobile-drawer-links" aria-label="Mobile navigation">
+    <a href="#" data-page="approach">Approach</a>
+    <a href="#" class="nav-ai" data-page="ai">AI</a>
+    <a href="#" data-page="results">Results</a>
+    <a href="#" data-page="work">Work</a>
+    <a href="#" data-page="branding">Branding</a>
+    <a href="#" data-page="contact">Contact</a>
+  </nav>
+  <div class="mobile-drawer-icons">
+    <a href="https://www.linkedin.com/in/isaaceklein/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a href="mailto:isaacklein@gmail.com" title="Email" aria-label="Email">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    </a>
+    <a href="#" title="Download Resume" aria-label="Download Resume">
+      <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+    </a>
+  </div>
+</aside>
 
 <!-- SIDEBAR -->
 <aside id="sidebar">
@@ -346,21 +486,46 @@ body.home-active .site-footer span:first-child{display:none;}
   <!-- AI -->
   <div class="page" id="page-ai" data-sidebar-fig="default">
     <div class="inner-page">
-      <div class="section-label">UI/UX Design Operations / Product Roadmapping</div>
-      <h1 class="section-title">Product Design Ops</h1>
-      <p class="section-body">I've spent my career applying my love of design, technology, and efficiency — helping companies build best-in-class products. The last few years I've been focused on helping the companies below build, design, and optimize their design and product programs.</p>
-      <div class="design-ops-clients">
-        <div class="client-logo-wrap"><span class="client-logo-text">Chatham Financial</span></div>
-        <div class="client-logo-wrap"><span class="client-logo-text">Comcast</span></div>
-      </div>
-      <hr class="divider">
-      <div class="section-label">Human + Machine</div>
-      <h2 class="section-title" style="font-size:clamp(36px,4vw,58px);">AI Capabilities</h2>
-      <p class="section-body">I bring hands-on fluency with the latest AI tools to every engagement — not as a novelty, but as a core part of how I work. From agentic Claude workflows to code generation and automation, AI accelerates everything I do.</p>
+      <div class="section-label">AI, Mobile, Product & Design Ops</div>
+      <h1 class="section-title">AI + Mobile Product Acceleration</h1>
+      <p class="section-body">I help mobile product teams turn emerging AI capabilities into real customer value. My work focuses on faster discovery, smarter feature prioritization, adaptive onboarding, and scalable execution for iOS, Android, and Web products.</p>
+      <p class="section-body">This is not just about tools — it is about shaping roadmaps, aligning teams, and building workflows that let AI do the heavy lifting while the product stays grounded in customer outcomes.</p>
       <div class="ai-callout">
         <div class="ai-callout-dot"></div>
-        <p><strong>100% AI Capable.</strong> I bring hands-on fluency with Claude (agentic &amp; code), ChatGPT / Codex, Gemini, and Pencil to every engagement — accelerating delivery, automating workflows, and helping teams build smarter.</p>
+        <p><strong>AI-enabled product operations.</strong> I use Claude (agentic &amp; code), ChatGPT / Codex, Gemini, and Pencil to accelerate planning, automate handoffs, and scale mobile-first experiences.</p>
       </div>
+      <div class="tools-section">
+        <div class="tools-main-title">What I bring</div>
+        <div class="tools-sub">Mobile + AI</div>
+        <div class="tool-group">
+          <div class="tool-group-label">Product &amp; Growth</div>
+          <div class="tag-row">
+            <span class="tag accent">Mobile-first product strategy</span>
+            <span class="tag accent">AI-assisted roadmap discovery</span>
+            <span class="tag accent">Adaptive experience design</span>
+            <span class="tag accent">Cross-device handoff</span>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">AI Workflow</div>
+          <div class="tag-row">
+            <span class="tag">Agentic Claude workflows</span>
+            <span class="tag">Generative UI / copy</span>
+            <span class="tag">Prompt-engineered prototypes</span>
+            <span class="tag">Automation + build handoff</span>
+          </div>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Execution</div>
+          <div class="tag-row">
+            <span class="tag">Rapid prototyping</span>
+            <span class="tag">Design ops playbooks</span>
+            <span class="tag">Customer synthesis</span>
+            <span class="tag">Launch readiness</span>
+          </div>
+        </div>
+      </div>
+      <p class="section-body">I’ve used this approach to support teams creating mobile-first financial products, health apps, and digital ecosystems, helping them launch faster, reduce rework, and make their AI investments more practical.</p>
     </div>
   </div>
 
@@ -420,10 +585,11 @@ body.home-active .site-footer span:first-child{display:none;}
       <p class="section-body">From front-end to back-end, to the sales kit that supports the new brand trajectory — below is just a small slice of what I've helped get done.</p>
       <div class="work-grid">
         <!-- 1: One Touch Reveal — left col -->
-        <div class="work-item">
+        <div class="work-item" data-mobile-toggle>
           <div class="work-item-inner">
             <img class="work-item-thumb" src="OTR_hero.jpg" alt="One Touch Reveal">
             <div class="work-overlay">
+              <button class="work-item-close" type="button" aria-label="Close details">×</button>
               <div class="work-overlay-title">One Touch Reveal Mobile App</div>
               <div class="work-overlay-desc">Oversaw the Design Program for the One Touch Reveal® Mobile App and Web Application for a J&amp;J subsidiary. First ever FDA approved Bolus Dosage app — delivered on time and under budget.</div>
               <div class="work-overlay-icons">
@@ -435,10 +601,11 @@ body.home-active .site-footer span:first-child{display:none;}
           </div>
         </div>
         <!-- 2: American Express Serve — center col -->
-        <div class="work-item">
+        <div class="work-item" data-mobile-toggle>
           <div class="work-item-inner">
             <img class="work-item-thumb" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Amexeco.png" alt="American Express Serve">
             <div class="work-overlay">
+              <button class="work-item-close" type="button" aria-label="Close details">×</button>
               <div class="work-overlay-title">American Express Serve</div>
               <div class="work-overlay-desc">Built a brand, ad campaigns and a complete digital ecosystem for a unique American Express prepaid product for people without access to the financial system.</div>
               <div class="work-overlay-icons">
@@ -456,10 +623,11 @@ body.home-active .site-footer span:first-child{display:none;}
           </div>
         </div>
         <!-- 3: Shake Shack — right col -->
-        <div class="work-item">
+        <div class="work-item" data-mobile-toggle>
           <div class="work-item-inner">
             <img class="work-item-thumb" src="Shack_hero.png" alt="Shake Shack">
             <div class="work-overlay">
+              <button class="work-item-close" type="button" aria-label="Close details">×</button>
               <div class="work-overlay-title">Shake Shack</div>
               <div class="work-overlay-desc">Shepherded the development and launch of the Shake Shack brand from the first store in Madison Sq. Park to the opening in the Mall of Dubai.</div>
               <div class="work-overlay-icons">
@@ -478,10 +646,11 @@ body.home-active .site-footer span:first-child{display:none;}
           </div>
         </div>
         <!-- 4: Acme Smoked Fish — left col -->
-        <div class="work-item">
+        <div class="work-item" data-mobile-toggle>
           <div class="work-item-inner">
             <img class="work-item-thumb" src="https://raw.githubusercontent.com/izzywan-a11y/ArtandScience/main/Acmelogo.jpg" alt="Acme Smoked Fish">
             <div class="work-overlay">
+              <button class="work-item-close" type="button" aria-label="Close details">×</button>
               <div class="work-overlay-title">Acme Smoked Fish</div>
               <div class="work-overlay-desc">Oversaw the rebrand of America's oldest purveyor of smoked fish in Brooklyn.</div>
               <div class="work-overlay-icons">
@@ -494,10 +663,11 @@ body.home-active .site-footer span:first-child{display:none;}
           </div>
         </div>
         <!-- 5: Comcast / Xfinity — center col -->
-        <div class="work-item">
+        <div class="work-item" data-mobile-toggle>
           <div class="work-item-inner">
             <img class="work-item-thumb" src="xfinityprepaid_hero.png" alt="Comcast / Xfinity">
             <div class="work-overlay">
+              <button class="work-item-close" type="button" aria-label="Close details">×</button>
               <div class="work-overlay-title">Comcast / Xfinity</div>
               <div class="work-overlay-desc">Consulted with Hero Digital to get the Xfinity Prepaid Mobile App/platform from 6+ months behind schedule to launching on time.</div>
               <div class="work-overlay-icons">
@@ -513,10 +683,11 @@ body.home-active .site-footer span:first-child{display:none;}
           </div>
         </div>
         <!-- 6: 2011 One Show — right col -->
-        <div class="work-item">
+        <div class="work-item" data-mobile-toggle>
           <div class="work-item-inner">
             <img class="work-item-thumb" src="oneshow.jpg" alt="2011 One Show">
             <div class="work-overlay">
+              <button class="work-item-close" type="button" aria-label="Close details">×</button>
               <div class="work-overlay-title">2011 One Show</div>
               <div class="work-overlay-desc">Was fortunate enough in my agency days to run the project of branding and concepting the 2011 One Show Awards.</div>
               <div class="work-overlay-icons">
@@ -528,10 +699,11 @@ body.home-active .site-footer span:first-child{display:none;}
           </div>
         </div>
         <!-- 7: Kane Brewing — left col -->
-        <div class="work-item">
+        <div class="work-item" data-mobile-toggle>
           <div class="work-item-inner">
             <img class="work-item-thumb" src="kane_1.jpg" alt="Kane Brewing">
             <div class="work-overlay">
+              <button class="work-item-close" type="button" aria-label="Close details">×</button>
               <div class="work-overlay-title">Kane Brewing</div>
               <div class="work-overlay-desc">Helped a really cool small brewery in Jersey up its brand game.</div>
               <div class="work-overlay-icons">
@@ -545,10 +717,11 @@ body.home-active .site-footer span:first-child{display:none;}
           </div>
         </div>
         <!-- 8: Prima Packaging — center col -->
-        <div class="work-item">
+        <div class="work-item" data-mobile-toggle>
           <div class="work-item-inner">
             <img class="work-item-thumb" src="prima_hero.jpg" alt="Prima Packaging">
             <div class="work-overlay">
+              <button class="work-item-close" type="button" aria-label="Close details">×</button>
               <div class="work-overlay-title">Prima Packaging</div>
               <div class="work-overlay-desc">A packaging project for a farm that sold produce through Walmart. Still have the picture.</div>
               <div class="work-overlay-icons">
@@ -560,10 +733,11 @@ body.home-active .site-footer span:first-child{display:none;}
           </div>
         </div>
         <!-- 9: Audience Science — right col -->
-        <div class="work-item">
+        <div class="work-item" data-mobile-toggle>
           <div class="work-item-inner">
             <img class="work-item-thumb" src="audiencescience_package.jpg" alt="Audience Science">
             <div class="work-overlay">
+              <button class="work-item-close" type="button" aria-label="Close details">×</button>
               <div class="work-overlay-title">Audience Science</div>
               <div class="work-overlay-desc">As part of a rebrand, we put together this really cool direct mail piece for a marketing data company. Came with a small Brookstone projector and everything.</div>
               <div class="work-overlay-icons">
@@ -631,6 +805,13 @@ const themeBtn  = document.getElementById('themeBtn');
 const navLogo   = document.getElementById('navLogo');
 const homeLogo  = document.getElementById('homeLogo');
 const sidebarFig = document.getElementById('sidebarFig');
+const mobileSidebarFig = document.getElementById('mobileSidebarFig');
+const menuBtn = document.getElementById('menuBtn');
+const mobileDrawer = document.getElementById('mobileDrawer');
+const drawerBackdrop = document.getElementById('drawerBackdrop');
+const drawerClose = document.getElementById('drawerClose');
+const mobileNavLinks = document.querySelectorAll('.mobile-drawer-links a[data-page]');
+const mobileWorkItems = document.querySelectorAll('.work-item[data-mobile-toggle]');
 
 themeBtn.addEventListener('click', () => {
   const isLight = document.body.classList.toggle('light');
@@ -640,22 +821,43 @@ themeBtn.addEventListener('click', () => {
   homeLogo.src = logo;
 });
 
+function setDrawerState(open) {
+  document.body.classList.toggle('drawer-open', open);
+  mobileDrawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+  menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+function closeDrawer() {
+  setDrawerState(false);
+}
+
+function syncSidebarFigure(id) {
+  const pageEl = document.getElementById('page-' + id);
+  const fig = pageEl ? pageEl.dataset.sidebarFig : 'default';
+  const figMap = { results: FIG_RESULTS, branding: FIG_BRANDING, work: FIG_WORK, contact: FIG_CONTACT };
+  const src = figMap[fig] || FIG_DEFAULT;
+  sidebarFig.src = src;
+  mobileSidebarFig.src = src;
+}
+
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.querySelectorAll('.mobile-drawer-links a').forEach(a => a.classList.remove('active'));
   const pageEl = document.getElementById('page-' + id);
   if (pageEl) pageEl.classList.add('active');
   const navEl = document.querySelector('.nav-links a[data-page="' + id + '"]');
   if (navEl) navEl.classList.add('active');
+  const mobileNavEl = document.querySelector('.mobile-drawer-links a[data-page="' + id + '"]');
+  if (mobileNavEl) mobileNavEl.classList.add('active');
   if (id === 'home') {
     document.body.classList.add('home-active');
   } else {
     document.body.classList.remove('home-active');
-    const fig = pageEl ? pageEl.dataset.sidebarFig : 'default';
-    const figMap = { results: FIG_RESULTS, branding: FIG_BRANDING, work: FIG_WORK, contact: FIG_CONTACT };
-    sidebarFig.src = figMap[fig] || FIG_DEFAULT;
+    syncSidebarFigure(id);
   }
   window.scrollTo(0, 0);
+  closeDrawer();
 }
 
 document.getElementById('logoHome').addEventListener('click', () => showPage('home'));
@@ -664,6 +866,34 @@ document.querySelectorAll('a[data-page]').forEach(function(a) {
     e.preventDefault();
     showPage(a.dataset.page);
   });
+});
+
+menuBtn.addEventListener('click', () => setDrawerState(!document.body.classList.contains('drawer-open')));
+drawerBackdrop.addEventListener('click', closeDrawer);
+drawerClose.addEventListener('click', closeDrawer);
+mobileNavLinks.forEach(link => link.addEventListener('click', e => {
+  e.preventDefault();
+  showPage(link.dataset.page);
+}));
+
+mobileWorkItems.forEach(item => {
+  const closeButton = item.querySelector('.work-item-close');
+  item.addEventListener('click', e => {
+    if (window.matchMedia('(max-width: 780px)').matches && !e.target.closest('.work-item-close')) {
+      item.classList.add('expanded');
+    }
+  });
+  closeButton.addEventListener('click', e => {
+    e.stopPropagation();
+    item.classList.remove('expanded');
+  });
+});
+
+window.addEventListener('resize', () => {
+  if (!window.matchMedia('(max-width: 780px)').matches) {
+    closeDrawer();
+    mobileWorkItems.forEach(item => item.classList.remove('expanded'));
+  }
 });
 
 showPage('home');
